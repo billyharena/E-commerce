@@ -25,7 +25,19 @@ class UserFactory extends Factory
             'remember_token' => Str::random(10),
         ];
     }
-
+    /**
+     * Define the "admin" state.
+     *
+     * @return \Illuminate\Database\Eloquent\Factories\Factory
+     */
+    public function admin()
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                'role' => 1,
+            ];
+        });
+    }
     /**
      * Indicate that the model's email address should be unverified.
      */
