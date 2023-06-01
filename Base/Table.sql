@@ -12,7 +12,7 @@ CREATE TABLE produit(
     idproduit SERIAL PRIMARY KEY,
     nom VARCHAR(100),
     idtype INT NOT NULL,
-    masse DECIMAL(10, 2) NOT NULL ,
+    description TEXT,
     prix DECIMAL(10, 2),
     FOREIGN KEY(idtype) REFERENCES type(idtype)
 );

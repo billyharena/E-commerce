@@ -20,7 +20,7 @@ class LoginController extends Controller
                     return back()->with('message','You are not a administrator');
                     break;
                 case 1:
-                    return back()->with('message','Yes !');
+                    return view('admin.accueilAdmin');
                     break;
                 default:
                     Auth::logout();
@@ -47,5 +47,9 @@ class LoginController extends Controller
         }else{
             return back()->with('fail', 'Something wrong');
         }
+    }
+    public function logout(){
+        Auth::logout();
+        return redirect('/');
     }
 }
