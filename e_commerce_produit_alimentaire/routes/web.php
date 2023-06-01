@@ -14,5 +14,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('admin.login');
 });
+
+Route::get('/client', function (){
+    return view('client.loginClient');
+})->name('client');
+Route::get('/Registerclient', function (){
+    return view('client.registerClient');
+})->name('Registerclient');
+
+Route::post('/adminPortails', 'App\Http\Controllers\LoginController@loginAdmin')->name('loginAdmin');
+Route::post('/registrationClient', 'App\Http\Controllers\LoginController@registerClient')->name('registration');
