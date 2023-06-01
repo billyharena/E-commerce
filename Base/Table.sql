@@ -24,19 +24,25 @@ CREATE TABLE produitCategorie(
     FOREIGN KEY(idcategorie) REFERENCES categorie(idcategorie)
 );
 
-CREATE TABLE produitPeremption(
+CREATE TABLE produitDelete(
+    idproduit INT NOT NULL,
+    dateDelete DATE DEFAULT NOW(),
+    FOREIGN KEY(idproduit) REFERENCES produit(idproduit)
+);
+
+/*CREATE TABLE produitPeremption(
     idproduitPeremption SERIAL PRIMARY KEY,
     idproduit INT NOT NULL,
     dateDeb DATE NOT NULL,
     dateFin DATE NOT NULL,
     FOREIGN KEY(idproduit) REFERENCES produit(idproduit)
-);
+);*/
 
 CREATE TABLE stock(
-    idproduitPeremption INT NOT NULL,
+    idproduit INT NOT NULL,
     quantite INT NOT NULL,
     dateEntree DATE NOT NULL,
-    FOREIGN KEY(idproduitPeremption) REFERENCES produitPeremption(idproduitPeremption)
+    FOREIGN KEY(idproduit) REFERENCES produit(idproduit)
 );
 
 CREATE TABLE prixVenteProduit(

@@ -31,4 +31,6 @@ Route::post('/registrationClient', 'App\Http\Controllers\LoginController@registe
 
 Route::middleware(['admin'])->group(function (){
     Route::get('/admin/listeProduit', 'App\Http\Controllers\ProduitController@_listeProduit')->name('listeProduit');
+    Route::delete('/admin/produit/{produitdelete}/delete', 'App\Http\Controllers\ProduitController@_deleteProduit')->name('deleteProduit');
+    Route::post('/admin/produit/{stock}/stock', 'App\Http\Controllers\ProduitController@_insertStock')->name('insertStock');
 });
